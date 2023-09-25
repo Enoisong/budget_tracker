@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply py-4 px-4 rounded-sm bg-sky-600 font-semibold text-white shadow-md hover:bg-slate-300;
+  }
+
+  .btn-secondary {
+    @apply py-3 px-4 rounded-sm font-semibold text-white shadow-md border border-white;
+  }
+
+  .form-inputs {
+    @apply w-full h-11 bg-white border-none pl-7;
+  }
+
+  .form-inputs:focus {
+    @apply ring-0;
+  }
+
+  .gray-bar {
+    @apply w-11/12 h-px bg-slate-300;
+  }
+}

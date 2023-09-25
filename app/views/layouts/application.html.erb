@@ -5,12 +5,47 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <nav class="flex justify-between h-14 bg-sky-600 items-center px-5 mb-4">
+        <% if controller_name == 'categories' && action_name == 'index' %>
+          <button id="hamburger-button" class="text-white hover:text-gray-700 focus:outline-none">
+            <i class="fas fa-bars fa-2x"></i>
+          </button>
+          <h1 class="text-white text-xl ml-4">Category List</h1>
+        <% elsif controller_name == 'categories' && action_name == 'new' %>
+          <%= link_to root_path do %>
+            <i class="fas fa-arrow-left mr-2 text-xl text-white"></i>
+          <% end %>
+          <h1 class="text-white text-xl ml-4">New Category</h1>
+        <% elsif controller_name == 'categories' && action_name == 'show' %>
+          <%= link_to root_path do %>
+            <i class="fas fa-arrow-left mr-2 text-xl text-white"></i>
+          <% end %>
+          <h1 class="text-white text-xl ml-4">Bills</h1>
+        <% else %>
+          <%= link_to root_path do %>
+            <i class="fas fa-arrow-left mr-2 text-xl text-white"></i>
+          <% end %>
+          <h1 class="text-white text-xl ml-4">New Bill</h1>
+        <% end %>
+        <%= link_to "Sign Out", destroy_user_session_path, class: "text-white text-sm" %>
+      </nav>
+    <% end %>
+
+    <main class="container mx-auto flex flex-col h-full items-center">
+      <div class="mx-4">
+        <small><%= notice %></small>
+        <small><%= alert %></small>
+      </div>
+      <%= yield %>
+    </main>
   </body>
 </html>
