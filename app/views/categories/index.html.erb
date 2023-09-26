@@ -1,4 +1,25 @@
-<div>
-  <h1 class="font-bold text-4xl">Catergory#index</h1>
-  <p>Find me in app/views/catergory/index.html.erb</p>
-</div>
+<% if user_signed_in? %>
+  <div class="container flex flex-col">
+    <h2 class="pl-4 text-sky-400 font-semibold mb-3">Welcome <%= current_user.name %>!</h2>
+    <div class="container flex flex-col items-center gap-4">
+      <% @categories.each do |category| %>
+        <div class="container flex justify-between px-4 items-center w-11/12 h-20 bg-white mx-4">
+          <img src="<%= category.icon %>" class="w-12 h-12" />
+          <p><%= link_to category.name, category_path(category), class: "hover:text-sky-400" %></p>
+          <p><%= category.bills.map { |bill| bill.amount }.sum %>$</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="w-full h-20 bg-green-500/100 flex items-center justify-center mt-auto fixed bottom-0">
+    <%= link_to "Add Category", new_category_path, class: "btn-secondary w-11/12 text-center" %>
+  </div>
+<%else%>
+  <div class="container h-3/4 flex flex-col justify-between">
+    <h1 class="text-center text-4xl font-bold mt-32">Budget Tracker</h1>
+    <div class="mt-12 flex flex-col text-center align-middle gap-8 items-center">
+      <%= link_to "LOG IN", new_user_session_path, class: 'w-11/12 btn-primary' %>
+      <%= link_to "SIGN UP", new_user_registration_path %>
+    </div>
+  </div>
+<%end%>
