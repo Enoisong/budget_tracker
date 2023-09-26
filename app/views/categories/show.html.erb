@@ -1,0 +1,17 @@
+<div class="container flex flex-col items-center gap-3">
+  <% if @bills.empty? %>
+    <p class="text-center text-2xl">No items added yet</p>
+  <% end %>
+  <% @bills.each do |bill| %>
+    <div class="container flex justify-between px-8 items-center w-11/12 h-16 bg-white mx-4">
+      <p><%= bill.name %></p>
+      <div class="w1/2 flex items-center justify-center gap-5">
+        <small class="text-xs"><%= bill.created_at.strftime("%a %b %Y") %></small>
+        <p><%= bill.amount %>$</p>
+      </div>
+    </div>
+  <% end %>
+  <div class="w-full h-20 bg-green-500/100 flex items-center justify-center mt-auto fixed bottom-0">
+    <%= link_to 'Add Item', new_category_bill_path(@category), class: "btn-secondary w-11/12 text-center" %>
+    </div>
+</div>
