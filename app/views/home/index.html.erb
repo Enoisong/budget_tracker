@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <div class="container">
+    <h1 class="text-sky-500 text-center text-3xl font-bold">Welcome from Budget Tracker</h1>
+    <div class="mt-12 flex justify-center align-middle gap-8">
+      <%= link_to "Log In", new_user_session_path, class: 'btn btn-primary' %>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
