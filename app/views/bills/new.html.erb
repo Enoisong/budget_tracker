@@ -1,5 +1,5 @@
 <div class="container w-full flex flex-col text-center">
-  <%= form_with model: @bill, url:category_bills_url, method: :post do |f| %>
+  <%= form_with model: @bill, url: category_bills_url, method: :post do |f| %>
     <div class="mb-3 flex flex-col w-full">
       <%= f.text_field :name, placeholder: "Item name", class: "form-inputs" %>
       <div class="gray-bar"></div>
