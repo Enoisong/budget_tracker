@@ -1,32 +1,39 @@
 {
-    "extends": ["stylelint-config-standard"],
-    "plugins": ["stylelint-scss", "stylelint-csstree-validator"],
-    "rules": {
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "tailwind",
-            "apply",
-            "variants",
-            "responsive",
-            "screen"
-          ]
-        }
-      ],
-      "scss/at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "tailwind",
-            "apply",
-            "variants",
-            "responsive",
-            "screen"
-          ]
-        }
-      ],
-      "csstree/validator": true
-    },
-    "ignoreFiles": ["build/**", "dist/**", "**/reset*.css", "**/tailwind*.css", "**/application.tailwind.css"]
-  }
+  "extends": ["stylelint-config-standard"],
+  "plugins": ["stylelint-scss", "stylelint-csstree-validator"],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "csstree/validator": true
+  },
+  "ignoreFiles": [
+    "build/**",
+    "dist/**",
+    "**/reset*.css",
+    "public/assets/**",
+    "**/tailwind*.css",
+    "**/application.tailwind.css"   
+  ]
+}
