@@ -32,8 +32,8 @@ development:
 test:
   <<: *default
   database: budget_tracker_test
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  username: postgres
+  password: admins
 
 production:
   <<: *default
