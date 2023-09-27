@@ -4,6 +4,8 @@
       <%= f.text_field :name, placeholder: "Item name", class: "form-inputs" %>
       <div class="gray-bar"></div>
       <%= f.text_field :amount, placeholder: "Amount", class: "form-inputs" %>
+      <div class="gray-bar"></div>
+      <%= f.select :category_id, options_for_select([['Select Category', '']] + Category.all.map { |c| [c.name, c.id] }), {}, { class: "form-inputs" } %>
     </div>
     <%= f.submit "Add Item", class: "btn-primary" %>
   <% end %>
